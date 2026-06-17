@@ -1,0 +1,133 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-accent-yellow: var(--accent-yellow);
+  --color-price: var(--price);
+  --color-success: var(--success);
+  --color-rating: var(--rating);
+  --font-display: "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+
+:root {
+  --radius: 0.5rem;
+  --background: oklch(0.99 0.003 240);
+  --foreground: oklch(0.2 0.02 250);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.2 0.02 250);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.2 0.02 250);
+  --primary: oklch(0.52 0.18 250); /* Walmart blue #0071CE */
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.96 0.005 250);
+  --secondary-foreground: oklch(0.2 0.02 250);
+  --muted: oklch(0.96 0.005 250);
+  --muted-foreground: oklch(0.5 0.01 250);
+  --accent: oklch(0.95 0.04 240);
+  --accent-foreground: oklch(0.2 0.05 250);
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.9 0.005 250);
+  --input: oklch(0.9 0.005 250);
+  --ring: oklch(0.52 0.18 250);
+  --brand: oklch(0.52 0.18 250);            /* deep blue */
+  --brand-foreground: oklch(0.99 0 0);
+  --accent-yellow: oklch(0.87 0.18 95);     /* #FFC220 */
+  --price: oklch(0.35 0.02 250);
+  --success: oklch(0.58 0.15 145);
+  --rating: oklch(0.82 0.16 75);
+  --sidebar: oklch(0.98 0 0);
+  --sidebar-foreground: oklch(0.18 0.01 250);
+  --sidebar-primary: oklch(0.52 0.18 250);
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.95 0.005 250);
+  --sidebar-accent-foreground: oklch(0.18 0.01 250);
+  --sidebar-border: oklch(0.9 0.005 250);
+  --sidebar-ring: oklch(0.52 0.18 250);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html, body { background-color: var(--color-background); color: var(--color-foreground); }
+  body { font-family: var(--font-display); font-size: 14px; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; }
+}
+
+@utility btn-primary {
+  background: var(--color-brand);
+  color: var(--color-brand-foreground);
+  border-radius: 9999px;
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  font-size: 14px;
+  transition: filter 0.15s, transform 0.05s;
+  &:hover { filter: brightness(1.08); }
+  &:active { transform: scale(0.98); }
+  &:disabled { opacity: 0.5; cursor: not-allowed; }
+}
+
+@utility btn-yellow {
+  background: var(--color-accent-yellow);
+  color: oklch(0.2 0.02 250);
+  border-radius: 9999px;
+  padding: 0.6rem 1.2rem;
+  font-weight: 700;
+  font-size: 14px;
+  transition: filter 0.15s, transform 0.05s;
+  &:hover { filter: brightness(0.96); }
+  &:active { transform: scale(0.98); }
+  &:disabled { opacity: 0.5; cursor: not-allowed; }
+}
+
+@utility btn-outline {
+  background: white;
+  color: var(--color-foreground);
+  border: 1px solid var(--color-border);
+  border-radius: 9999px;
+  padding: 0.55rem 1.15rem;
+  font-weight: 600;
+  font-size: 14px;
+  &:hover { background: var(--color-secondary); }
+}
+
+@utility link-blue {
+  color: var(--color-brand);
+  &:hover { text-decoration: underline; }
+}
+
+@utility card-tile {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  transition: box-shadow 0.15s, border-color 0.15s;
+  &:hover { box-shadow: 0 4px 16px -4px rgba(0,0,0,0.1); border-color: oklch(0.7 0.05 250); }
+}
